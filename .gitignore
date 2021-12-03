@@ -3,3 +3,4 @@ package-lock.json
 simple-e2e.iml
 modules.xml
 .idea
+*-testsuite.xml
