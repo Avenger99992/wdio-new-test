@@ -93,7 +93,7 @@ describe('vadik loh', () => {
         console.log(isExisting);
         await browser.pause(5000);*/
 
-      /*  await browser.url('https://www.saucedemo.com/');
+        await browser.url('https://www.saucedemo.com/');
         let newUserLogin = await browser.$('[id="user-name"]');
         await newUserLogin.setValue('standard_user');
         let newUserPassword = await browser.$('[id="password"]');
@@ -106,7 +106,7 @@ describe('vadik loh', () => {
             namesArray.push(await name.getText());
         }
         expect(namesArray).to.have.same.members(['Sauce Labs Backpack', 'Sauce Labs Bike Light', 'Sauce Labs Bolt T-Shirt',
-             'Sauce Labs Fleece Jacket', 'Sauce Labs Onesie', 'Test.allTheThings() T-Shirt (Red)']);*/
+             'Sauce Labs Fleece Jacket', 'Sauce Labs Onesie', 'Test.allTheThings() T-Shirt (Red)']);
 
     });
 

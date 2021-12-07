@@ -49,6 +49,5 @@ describe('vadik loh', () => {
         await homeButton.click();
         expect (await browser.getUrl()).to.equal('https://www.saucedemo.com/inventory.html');
 
-
     });
 });

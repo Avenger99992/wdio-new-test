@@ -20,7 +20,7 @@ describe('vadik loh', () => {
         let purchaseStatusCheck = await browser.$('.inventory_item_price');
         expect(await purchaseStatusCheck.getText()).to.equal('$29.99');*/
 
-      /*  await browser.url('https://www.saucedemo.com/');
+        await browser.url('https://www.saucedemo.com/');
         let newUserLogin = await browser.$('[id="user-name"]');
         await newUserLogin.setValue('standard_user');
         let newUserPassword = await browser.$('[id="password"]');
@@ -42,7 +42,7 @@ describe('vadik loh', () => {
             pricesSum += Number(pricesArray.push((await price.getText()).replace('$', '')));
 
         }
-        expect (pricesSum == 89.97);*/
+        expect (pricesSum == 89.97);
 
 
 
