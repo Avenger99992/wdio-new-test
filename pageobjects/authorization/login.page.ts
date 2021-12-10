@@ -13,7 +13,7 @@ export default class LoginPage {
     }
 
 
-    public async newLogin(username: string, password: string): Promise<void> {
+    public async login(username: string, password: string): Promise<void> {
         await this.typeUsername(username);
         await this.typePassword(password);
         let newLogin = await browser.$('#login-button');
