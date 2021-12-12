@@ -13,19 +13,19 @@ describe('vadik loh', () => {
         await loginPage.login('standard_user', 'secret_sauce');
         let productPage: ProductsPage = new ProductsPage();
         expect(await productPage.getItemPrice(4)).to.equal('$49.99');
-        expect(await productPage.checkBadge()).to.eql(false);
+        expect(await productPage.isBadgePresent()).to.eql(false);
         await productPage.openSauceLabsFleeceJacketPage();
         await productPage.addToCart();
-        await productPage.shoppingCartClick();
+        await productPage.clickShoppingCart();
         expect (await productPage.checkIfPriceEqual()).to.equal('$49.99');
-        await productPage.checkOutPage();
+        await productPage.clickCheckoutButton();
         let checkOut: CheckOutPage = new CheckOutPage();
-        await checkOut.checkOutDetails('Vadik', 'Mocha', '1488');
-        expect (await checkOut.checkTotalPrice()).to.equal('Item total: $49.99');
-        expect (await checkOut.checkTax()).to.equal('Tax: $4.00');
-        expect (await checkOut.checkSum()) === 49.99 + 4.00;
-        await checkOut.finishPurchase();
-        expect (await checkOut.orderStatus()).to.equal('THANK YOU FOR YOUR ORDER');
+        await checkOut.fillUserData('Vadik', 'Mocha', '1488');
+        expect (await checkOut.getTotalPrice()).to.equal('Item total: $49.99');
+        expect (await checkOut.getTax()).to.equal('Tax: $4.00');
+        expect (await checkOut.getSum()) === 49.99 + 4.00;
+        await checkOut.clickFinishButton();
+        expect (await checkOut.getOrderStatus()).to.equal('THANK YOU FOR YOUR ORDER');
         await checkOut.goBack();
         expect (await browser.getUrl()).to.equal(inventoryPageURL);
 

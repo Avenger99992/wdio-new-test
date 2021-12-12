@@ -6,39 +6,43 @@ export default class CheckOutPage {
     private finish: string = '#finish';
     private order: string = '.complete-header';
     private goBackButton = '#back-to-products';
+    private firstName: string = '#first-name';
+    private lastName: string = '#last-name';
+    private postalCode: string = '#postal-code';
+    private continueButton: string = '#continue';
 
-    public async checkOutDetails (firstName: string, lastName: string, code: string){
-        let firstNameField = await browser.$('#first-name');
+    public async fillUserData (firstName: string, lastName: string, code: string){
+        let firstNameField = await browser.$(this.firstName);
         await firstNameField.setValue(firstName);
-        let lastNameField = await browser.$('#last-name');
+        let lastNameField = await browser.$(this.lastName);
         await lastNameField.setValue(lastName);
-        let postalCodeField = await browser.$('#postal-code');
+        let postalCodeField = await browser.$(this.postalCode);
         await postalCodeField.setValue(code);
-        let continueButton = await browser.$('#continue');
+        let continueButton = await browser.$(this.continueButton);
         await continueButton.click();
     }
 
-    public async checkSum(): Promise<number> {
+    public async getSum(): Promise<number> {
         let total = Number((await browser.$(this.sum).getText()).replace('Total: $', ''));
         return total;
     }
 
-    public async checkTotalPrice(): Promise<string> {
+    public async getTotalPrice(): Promise<string> {
         let check = await browser.$(this.totalPrice);
         return check.getText();
     }
 
-    public async checkTax(): Promise<string> {
+    public async getTax(): Promise<string> {
         let check = await browser.$(this.tax);
         return check.getText();
     }
 
-    public async finishPurchase(): Promise<void> {
+    public async clickFinishButton(): Promise<void> {
         let finishClick = await browser.$(this.finish);
         await finishClick.click();
     }
 
-    public async orderStatus(): Promise<string> {
+    public async getOrderStatus(): Promise<string> {
         let status = await browser.$(this.order);
         return status.getText();
     }

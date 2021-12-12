@@ -8,14 +8,14 @@ export default class ProductsPage {
     private addToCartItem: string = '#add-to-cart-sauce-labs-fleece-jacket';
     private shoppingCart: string = '.shopping_cart_link';
     private priceSelector: string = '.inventory_item_price';
-    private checkOut: string = '#checkout';
+    private checkoutButton: string = '#checkout';
 
     public async checkIfPriceEqual(): Promise<string> {
         let checkItem = await browser.$(this.priceSelector);
         return await checkItem.getText();
     }
 
-    public async checkBadge(): Promise<any> {
+    public async isBadgePresent(): Promise<boolean> {
         let isCartItemDisplayed = await browser.$(this.badge);
         return await isCartItemDisplayed.isDisplayed();
     }
@@ -35,13 +35,13 @@ export default class ProductsPage {
         await item.click();
     }
 
-    public async shoppingCartClick(): Promise<void> {
+    public async clickShoppingCart(): Promise<void> {
         let cart = await browser.$(this.shoppingCart);
         await cart.click();
     }
 
-    public async checkOutPage(): Promise<void> {
-        let checkOutProceed = await browser.$(this.checkOut);
+    public async clickCheckoutButton(): Promise<void> {
+        let checkOutProceed = await browser.$(this.checkoutButton);
         await checkOutProceed.click();
     }
 }
